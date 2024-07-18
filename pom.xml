@@ -1,116 +1,100 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-         
     <modelVersion>4.0.0</modelVersion>
     
-    <!-- Parent POM -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <!-- Ensure this version matches the Spring Boot version you are using -->
-        <version>3.1.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-    
-    <!-- Project coordinates -->
     <groupId>com.springboot</groupId>
     <artifactId>crudwithspringpro</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>crudwithspringpro</name>
     <description>Demo project for Spring Boot</description>
     
-    <!-- Properties section -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    
     <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- Set Java version for compilation -->
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <!-- Specify Spring Boot version if different from parent -->
-        <!-- Example: <spring.boot.version>2.5.3</spring.boot.version> -->
     </properties>
     
-    <!-- Dependencies section -->
     <dependencies>
-        <!-- Spring Boot Starter Data JPA -->
+        <!-- Spring Boot Starter Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        
-        <!-- Spring Boot Starter Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         
-        <!-- H2 Database (runtime scope) -->
+        <!-- Database Dependencies -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-        
-        <!-- MySQL Connector (runtime scope) -->
         <dependency>
             <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
+            <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
         
-        <!-- Spring Boot Starter Test (test scope) -->
+        <!-- Spring Boot Devtools (optional) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>3.0.0</version>
+            <scope>runtime</scope>
+        </dependency>
+        
+        <!-- Testing Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        
-        <!-- Tomcat Embed Jasper -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
-        
-        <!-- Jakarta Servlet JSP JSTL -->
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>3.0.1</version>
         </dependency>
-        
-        <!-- Jakarta Servlet JSP JSTL API -->
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
             <version>3.0.0</version>
         </dependency>
-        
-        <!-- Spring Boot DevTools (optional) -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <version>3.0.0</version>
-            <scope>runtime</scope> <!-- Optional runtime scope -->
-        </dependency>
     </dependencies>
     
-    <!-- Build section -->
     <build>
         <plugins>
-            <!-- Maven Compiler Plugin -->
+            <!-- Maven Compiler Plugin Configuration -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
                 <configuration>
-                    <!-- Set Java version for compilation -->
-                    <source>11</source>
-                    <target>11</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             
-            <!-- Additional plugins can be configured here -->
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 </project>
