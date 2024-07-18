@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.6</version> <!-- Update to the latest version -->
+        <version>3.1.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.springboot</groupId>
@@ -16,15 +16,13 @@
     <description>Demo project for Spring Boot</description>
     
     <properties>
-        <java.version>11</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-cloud.version>2020.0.0-M5</spring-cloud.version> <!-- Example of Spring Cloud version -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
-        <!-- Spring Boot Starter dependencies -->
+        <!-- Spring Boot Starter Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -38,41 +36,56 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- MySQL Connector Java -->
         <dependency>
-            <groupId>mysql</groupId>
+            <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.28</version> <!-- Specify the version you want to use -->
+            <version>8.0.28</version> <!-- Specify version explicitly -->
             <scope>runtime</scope>
         </dependency>
-        <!-- Spring Boot Starter Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Jakarta EE APIs -->
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>9.1.0</version> <!-- Adjust version as necessary -->
+            <scope>provided</scope> <!-- Provided scope for Java EE containers -->
+        </dependency>
+
+        <!-- ANTLR for parsing -->
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.9.2</version> <!-- Adjust version as necessary -->
+        </dependency>
+
         <!-- Tomcat Embed Jasper for JSP support -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
-        <!-- Jakarta Servlet JSP JSTL -->
+
+        <!-- Jakarta Standard Tag Library (JSTL) -->
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.1</version> <!-- Adjust version as necessary -->
         </dependency>
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.0</version> <!-- Adjust version as necessary -->
         </dependency>
+
         <!-- Spring Boot DevTools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <version>2.5.6</version> <!-- Update to the latest version -->
-            <scope>runtime</scope>
+            <version>3.0.0</version> <!-- Adjust version as necessary -->
         </dependency>
     </dependencies>
 
@@ -82,25 +95,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version> <!-- Ensure the plugin version is compatible -->
+                <version>3.11.0</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
-            <!-- Maven Surefire Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version> <!-- Example of version, update if needed -->
-            </plugin>
-            <!-- Maven Resources Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.2.0</version> <!-- Example of version, update if needed -->
-            </plugin>
-            <!-- Other plugins you may need (e.g., Spring Boot Maven Plugin) -->
         </plugins>
     </build>
 </project>
