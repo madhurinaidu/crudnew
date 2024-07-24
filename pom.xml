@@ -94,7 +94,7 @@
             <configuration>
                 <archive>
                     <manifest>
-                        <mainClass>com.crud.CrudwithspringproApplication</mainClass>
+                        <mainClass>com.crud.App</mainClass>
                     </manifest>
                 </archive>
             </configuration>
