@@ -91,21 +91,15 @@
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.1.2</version>
+        <version>3.2.0</version>
         <configuration>
-            <archive>
+          
                 <manifest>
                     <mainClass>com.crud.CrudwithspringproApplication</mainClass>
                 </manifest>
-            </archive>
+            
         </configuration>
-        <executions>
-            <execution>
-                <goals>
-                    <goal>repackage</goal>
-                </goals>
-            </execution>
-        </executions>
+       
     </plugin>
 </plugins>
 
