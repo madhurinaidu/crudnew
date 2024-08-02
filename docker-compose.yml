@@ -1,5 +1,5 @@
 version: '3.7'
-  
+
 services:
   mysql-db:
     image: mysql:8.0
@@ -15,10 +15,12 @@ services:
       - mysql_data:/var/lib/mysql
 
   springboot-app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: springboot-container
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/gee
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/gee?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: madhu
       SPRING_DATASOURCE_PASSWORD: root
     ports:
@@ -28,3 +30,4 @@ services:
 
 volumes:
   mysql_data:
+
