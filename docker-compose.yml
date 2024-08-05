@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  mysql-db:
+  mysql-container:
     image: mysql:8.0
     container_name: mysql-container
     environment:
@@ -11,10 +11,10 @@ services:
       MYSQL_PASSWORD: root
     ports:
       - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
+    networks:
+      - my-network
 
-  springboot-app:
+  springboot-container:
     build:
       context: .
       dockerfile: Dockerfile
@@ -24,12 +24,12 @@ services:
       SPRING_DATASOURCE_USERNAME: madhu
       SPRING_DATASOURCE_PASSWORD: root
     ports:
-      - "8080:8080
+      - "8080:8080"
     depends_on:
       - mysql-container
     networks:
       - my-network
 
-volumes:
-  mysql_data:
-
+networks:
+  my-network:
+    driver: bridge
