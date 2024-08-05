@@ -20,13 +20,15 @@ services:
       dockerfile: Dockerfile
     container_name: springboot-container
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/gee?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/gee?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: madhu
       SPRING_DATASOURCE_PASSWORD: root
     ports:
-      - "8080:8080"
+      - "8080:8080
     depends_on:
-      - mysql-db
+      - mysql-container
+    networks:
+      - my-network
 
 volumes:
   mysql_data:
