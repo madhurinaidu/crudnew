@@ -85,31 +85,36 @@
             <artifactId>spring-boot-devtools</artifactId>
             <version>3.0.0</version> <!-- Adjust version as necessary -->
         </dependency>
-    </dependencies><build>
-    <plugins>
-              <plugin>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-maven-plugin</artifactId>
-            <version>3.0.0</version> <!-- Use the version compatible with your Spring Boot version -->
+    </dependencies>
+        <executions>
+                <execution>
+                    <phase>prepare-package</phase>
+                    <goals>
+                        <goal>resources</goal>
+                    </goals>
+                    <configuration>
+                        <resources>
+                            <resource>
+                                <directory>src/main/webapp</directory>
+                                <includes>
+                                    <include>**/*.jsp</include>
+                                </includes>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+            </executions>
         </plugin>
         <plugin>
-                 
-                 
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
-            <version>3.2.0</version>
+            <version>3.3.1</version>
             <configuration>
-                <archive>
-                    <manifest>
-                        <mainClass>com.crud.CrudwithspringproApplication</mainClass>
-                    </manifest>
-                </archive>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
             </configuration>
         </plugin>
     </plugins>
 </build>
-
-
    
 </project> 
 
