@@ -92,6 +92,14 @@
                 <version>9.0.56</version> <!-- Adjust the version if needed -->
             </plugin>
         </plugins>
+            <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.jsp</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 
