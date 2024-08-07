@@ -86,7 +86,19 @@
             <version>3.0.0</version> <!-- Adjust version as necessary -->
         </dependency>
     </dependencies>
-        <executions>
+         <build>
+    <plugins>
+              <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>3.0.0</version> <!-- Use the version compatible with your Spring Boot version -->
+        </plugin>
+
+
+              <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
                 <execution>
                     <phase>prepare-package</phase>
                     <goals>
@@ -106,18 +118,19 @@
             </executions>
         </plugin>
         <plugin>
+                 
+                 
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
-            <version>3.3.1</version>
+            <version>3.2.0</version>
             <configuration>
-                <failOnMissingWebXml>false</failOnMissingWebXml>
+                <archive>
+                    <manifest>
+                        <mainClass>com.crud.CrudwithspringproApplication</mainClass>
+                    </manifest>
+                </archive>
             </configuration>
         </plugin>
     </plugins>
 </build>
-   
-</project> 
-
-
-
-       
+</project>
