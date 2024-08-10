@@ -15,7 +15,7 @@ import com.crud.service.UserIpls;
 
 
 @Controller
-@RequestMapping("/api")
+@RequestMapping("/")
 
 public class Employee {
 	
