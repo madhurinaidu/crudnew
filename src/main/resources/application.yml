@@ -1,13 +1,11 @@
 spring:
   datasource:
-    url: jdbc:mysql://mysql-container/gee?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    username: madhu
+    url: jdbc:mysql://mysql-container:3306/gee?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
     password: root
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
-  mvc:
-    view:
-      prefix: /views/
-      suffix: .jsp
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
