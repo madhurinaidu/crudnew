@@ -19,7 +19,7 @@ services:
     container_name: springboot-container
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/gee?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-      SPRING_DATASOURCE_USERNAME: madhu
+      SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     ports:
       - "8080:8080"
