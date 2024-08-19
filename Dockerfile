@@ -24,10 +24,7 @@ FROM tomcat:9.0-jdk17
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy the WAR file from the builder stage to Tomcat's webapps directory
-COPY --from=builder /app/target/crudwithspringpro-0.0.1-SNAPSHOT.jar crudwithspringpro.jar
+COPY --from=builder /app/target/crudwithspringpro-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/crudwithspringpro.war
 
 # Expose the port Tomcat is running on
 EXPOSE 8080
-
-# Start Tomcat
-ENTRYPOINT ["java", "-jar","crudwithspringpro.jar"]
