@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>crudwithspringpro</name>
     <description>Demo project for Spring Boot</description>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <properties>
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
@@ -83,7 +83,7 @@
             </plugin>
              <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
+                <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
                     <archive>
