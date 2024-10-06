@@ -75,24 +75,7 @@
 
 	
 <build>
-	
-
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			 <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.3.1</version>
-            
-        </plugin>
-           
-		</plugins>
-	
-        <!-- Include JSP files in the WAR -->
-        <resources>
+    <resources>
         <!-- Include resources such as application.properties -->
         <resource>
             <directory>src/main/resources</directory>
@@ -102,8 +85,28 @@
             </includes>
         </resource>
     </resources>
-		   
-	</build>
-
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.1</version>
+            <configuration>
+                <!-- Point to the webapp directory -->
+                <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                <webResources>
+                    <!-- Include JSP files from the views directory -->
+                    <resource>
+                        <directory>src/main/webapp/views</directory>
+                        <targetPath>WEB-INF/views</targetPath>
+                        <includes>
+                            <include>**/*.jsp</include>
+                        </includes>
+                    </resource>
+                </webResources>
+                <packagingExcludes>WEB-INF/classes/views/*</packagingExcludes>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 
 </project>
