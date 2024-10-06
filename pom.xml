@@ -90,15 +90,19 @@
         </plugin>
            
 		</plugins>
-	<resources>
+	
         <!-- Include JSP files in the WAR -->
+        <resources>
+        <!-- Include resources such as application.properties -->
         <resource>
-            <directory>src/main/resources/webapp</directory>
+            <directory>src/main/resources</directory>
             <includes>
-               <include>**/*.properties</include>
+                <include>**/*.properties</include>
+                <include>**/*.xml</include>
             </includes>
         </resource>
-		    </resources>
+    </resources>
+		   
 	</build>
 
 
