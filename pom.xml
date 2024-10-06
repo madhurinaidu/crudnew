@@ -79,11 +79,9 @@
         <!-- Include resources such as application.properties -->
         <resource>
             <directory>src/main/resources</directory>
-            <includes>
+           
                <include>**/*.jsp</include>
-		    
-               
-            </includes>
+		
 		 <resource>
        
     </resources>
