@@ -76,7 +76,7 @@
 	
 <build>
 	
-    </resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -98,6 +98,7 @@
                 <include>**/*.jsp</include>
             </includes>
         </resource>
+		    </resources>
 	</build>
 
 
