@@ -84,13 +84,13 @@
             </includes>
         </resource>
     </resources>
-    
+
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
             <version>3.3.1</version>
-	 <configuration>
+      <configuration>
                 <webResources>
                     <resource>
                         <directory>src/main/resources</directory>
@@ -102,7 +102,6 @@
                 </webResources>
             </configuration>
 </plugin>
-
     </plugins>
 </build>
 
