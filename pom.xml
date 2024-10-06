@@ -81,8 +81,14 @@
             <directory>src/main/resources</directory>
             <includes>
                <include>**/*.jsp</include>
-		     <include>**/*.properties</include>
+		    
                
+            </includes>
+        </resource>
+	     <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*.properties</include> <!-- This line ensures that application.properties is included -->
             </includes>
         </resource>
     </resources>
