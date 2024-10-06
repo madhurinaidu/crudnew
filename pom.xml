@@ -80,7 +80,7 @@
         <resource>
             <directory>src/main/resources</directory>
             <includes>
-                <include>**/*.properties</include>
+               <include>**/*.jsp</include>
                
             </includes>
         </resource>
