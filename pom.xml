@@ -95,7 +95,7 @@
         <resource>
             <directory>src/main/resources/webapp</directory>
             <includes>
-                <include>**/*.jsp</include>
+               <include>**/*.properties</include>
             </includes>
         </resource>
 		    </resources>
