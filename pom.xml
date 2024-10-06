@@ -75,16 +75,16 @@
 
 	
 <build>
-    <resources>
-        <!-- Include resources such as application.properties -->
+   <resources>
+        <!-- Include JSP files in the WAR -->
         <resource>
-            <directory>src/main/resources</directory>
-           
-               <include>**/*.jsp</include>
-		
-		 <resource>
-       
+            <directory>src/main/resources/webapp</directory>
+            <includes>
+                <include>**/*.jsp</include>
+            </includes>
+        </resource>
     </resources>
+    
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
