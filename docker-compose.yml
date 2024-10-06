@@ -2,7 +2,7 @@ version: '3'
 services:
   springboot:
     container_name: spring-boot-ec2-starter
-    image: madhurinaidu/nani436:1.0
+    image: madhurinaidu/nani456:1.0
     ports:
       - "8080:8080"
     depends_on:
