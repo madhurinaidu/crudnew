@@ -81,6 +81,7 @@
             <directory>src/main/resources</directory>
             <includes>
                <include>**/*.jsp</include>
+		     <include>**/*.properties</include>
                
             </includes>
         </resource>
