@@ -84,6 +84,7 @@
 		    
                
             </includes>
+		 <resources>
        
     </resources>
     <plugins>
