@@ -1,33 +1,32 @@
-version: '3.7'
-
+version: '3'
 services:
-  mysql-container:
-    image: mysql:8.0
-    container_name: mysql-container
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: gee
-    ports:
-      - "3306:3306"
-    networks:
-      - my-network
-
-  springboot-container:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: springboot-container
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/gee?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+  springboot:
+    container_name: spring-boot-ec2-starter
+    image: madhurinaidu/nani436:1.0
     ports:
       - "8080:8080"
     depends_on:
-      - mysql-container
-    networks:
-      - my-network
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/demo?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    restart: on-failure
 
-networks:
-  my-network:
-    driver: bridge
+  mysql:
+    container_name: db
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=demo
+    volumes:
+      - appvolume:/var/lib/mysql
+    ports:
+      - "3306:3306" 
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s 
+      retries: 5
+
+volumes:
+  appvolume:
