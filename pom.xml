@@ -75,6 +75,10 @@
 
 	
 <build>
+	<plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
    <resources>
         <!-- Include JSP files in the WAR -->
         <resource>
