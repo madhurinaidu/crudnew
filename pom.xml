@@ -76,6 +76,13 @@
 	
 <build>
     <plugins>
+        <!-- Spring Boot Maven Plugin -->
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+
+        <!-- Maven WAR Plugin -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
@@ -84,24 +91,21 @@
                 <warSourceDirectory>src/main/webapp</warSourceDirectory>
                 <webResources>
                     <resource>
+                        <!-- Correct JSP folder -->
                         <directory>src/main/webapp/views</directory>
                         <targetPath>WEB-INF/views</targetPath>
                         <includes>
                             <include>**/*.jsp</include>
                         </includes>
                     </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <includes>
-                            <include>application.properties</include>
-                        </includes>
-                        <targetPath>WEB-INF/classes</targetPath>
-                    </resource>
                 </webResources>
+                <!-- Exclude unnecessary resources -->
+                <packagingExcludes>WEB-INF/classes/views/*</packagingExcludes>
             </configuration>
         </plugin>
     </plugins>
 </build>
+
 
 
 </project>
