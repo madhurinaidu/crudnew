@@ -1,17 +1,11 @@
-# Use the official Tomcat 10 image as the base image
-FROM tomcat:10.1-jdk17
+# Use OpenJDK base image
+FROM openjdk:17-jdk-slim
 
-# Set the environment variables for the container
-ENV TZ=UTC
+# Copy the JAR file into the container
+COPY target/crudwithspringpro-0.0.1-SNAPSHOT.war.jar /app.jar
 
-# Remove the default webapps to avoid conflicts
-RUN rm -rf /usr/local/tomcat/webapps/*
+# Specify the command to run the JAR
+ENTRYPOINT ["java", "-jar", "/app.jar"]
 
-# Copy the WAR file to the Tomcat webapps directory
-COPY target/crudwithspringpro-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/crudwithspringpro.war
-
-# Expose the default Tomcat port
+# Expose the port your application runs on
 EXPOSE 8080
-
-# Start the Tomcat server
-CMD ["catalina.sh", "run"]
