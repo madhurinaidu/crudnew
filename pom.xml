@@ -105,6 +105,15 @@
         </plugin>
     </plugins>
 </build>
+	<profiles>
+        <!-- Add the no-database profile here -->
+        <profile>
+            <id>no-database</id>
+            <properties>
+                <skipDatabase>true</skipDatabase>
+            </properties>
+        </profile>
+    </profiles>
 
 
 
