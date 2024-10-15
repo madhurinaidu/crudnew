@@ -20,7 +20,7 @@ public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Nonnull
+	@Notnull
 	private Long id;
 	
 	@Column
