@@ -87,26 +87,46 @@
 
 	
 <build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.1</version>
-                <configuration>
-                    <archive>
-                        <manifestEntries>
-                            <Main-Class>com.crud.CrudwithspringproApplication</Main-Class>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
-            </plugin>
-           
-		</plugins>
-	</build>
+    <resources>
+        <!-- Include JSP files in the WAR -->
+        <resource>
+            <directory>src/main/resources/webapp</directory>
+            <includes>
+                <include>**/*.jsp</include>
+            </includes>
+        </resource>
+    </resources>
+
+    <plugins>
+        <!-- Spring Boot Maven Plugin -->
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+
+        <!-- Maven WAR Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.1</version>
+            <configuration>
+                <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                <webResources>
+                    <resource>
+                        <!-- Include JSP files inside WEB-INF/views -->
+                        <directory>src/main/webapp/views</directory>
+                        <targetPath>WEB-INF/views</targetPath>
+                        <includes>
+                            <include>**/*.jsp</include>
+                        </includes>
+                    </resource>
+                </webResources>
+                <!-- Exclude any unnecessary views directory in classes -->
+                <packagingExcludes>WEB-INF/classes/views/*</packagingExcludes>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 
 
 
