@@ -114,7 +114,7 @@
                 <webResources>
                     <resource>
                         <!-- Include JSP files inside WEB-INF/views -->
-                        <directory>src/main/webapp/views</directory>
+                        <directory>src/main/webapp/WEB-INF/views</directory>
                         <targetPath>WEB-INF/views</targetPath>
                         <includes>
                             <include>**/*.jsp</include>
