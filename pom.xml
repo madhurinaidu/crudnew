@@ -88,15 +88,7 @@
 	
 <build>
 	
-   <resources>
-        <!-- Include JSP files in the WAR -->
-        <resource>
-            <directory>src/main/resources/webapp</directory>
-            <includes>
-                <include>**/*.jsp</include>
-            </includes>
-        </resource>
-    </resources>
+   
 
     <plugins>
 	    <plugin>
