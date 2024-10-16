@@ -6,7 +6,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - mysql  # Use array format, just a list of service names
+      - mysql
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/crudwithspringpro/"]
       interval: 30s
@@ -17,10 +17,11 @@ services:
     container_name: db
     image: mysql:5.7
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_DATABASE=demo
+      - MYSQL_ROOT_PASSWORD=root  # Only the root user password
+      - MYSQL_DATABASE=demo  # Optional: Create a database on startup
+      # Optionally create a regular user (not root):
+      # - MYSQL_USER=myuser
+      # - MYSQL_PASSWORD=mypassword
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "db", "-u", "root", "-proot"]
       interval: 30s
