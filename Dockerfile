@@ -1,11 +1,14 @@
-# Use Tomcat base image
-FROM tomcat:10.1-jdk17-corretto
+# Use the Tomcat base image
+FROM tomcat:10.1-jdk17
 
-# Copy the WAR file into the webapps directory of Tomcat
-COPY target/crudwithspringpro-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
+# Set working directory inside the container
+WORKDIR /usr/local/tomcat
 
-# Expose the port on which Tomcat runs
+# Copy the WAR file to the container's Tomcat webapps directory and rename it to ROOT.war
+COPY target/crudwithspringpro.war /usr/local/tomcat/webapps/ROOT.war
+
+# Expose the Tomcat port
 EXPOSE 8080
 
-# Start Tomcat server
+# Start Tomcat
 CMD ["catalina.sh", "run"]
