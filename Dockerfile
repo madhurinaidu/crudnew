@@ -5,7 +5,8 @@ FROM tomcat:10.1-jdk17
 WORKDIR /usr/local/tomcat
 
 # Copy the WAR file to the container's Tomcat webapps directory and rename it to ROOT.war
-COPY target/ crudwithspringpro-0.0.1-SNAPSHOT.war  /usr/local/tomcat/webapps/ROOT.war
+COPY target/crudwithspringpro-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+
 
 # Expose the Tomcat port
 EXPOSE 8080
