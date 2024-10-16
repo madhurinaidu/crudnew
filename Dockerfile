@@ -2,7 +2,7 @@
 FROM tomcat:10.1
 
 # Copy your WAR file to the webapps directory
-COPY target/crudwithspringpro.war /usr/local/tomcat/webapps/
+COPY target/crudwithspringpro-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 
 # Set the working directory (optional)
 WORKDIR /usr/local/tomcat
