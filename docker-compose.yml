@@ -14,7 +14,7 @@ services:
       retries: 3
 
   mysql:
-    container_name: db
+    container_name: localhost
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=root  # Only the root user password
