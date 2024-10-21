@@ -6,9 +6,10 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy  # Wait for MySQL to be healthy
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://db:8080/crudwithspringpro/"]
+      test: ["CMD", "curl", "--fail", "http://db:8080/crudwithspringpro/"]  # Adjust if needed
       interval: 30s
       timeout: 5s
       retries: 3
@@ -17,11 +18,8 @@ services:
     container_name: db
     image: mysql:5.7
     environment:
-      - MYSQL_ROOT_PASSWORD=root  # Only the root user password
-      - MYSQL_DATABASE=demo  # Optional: Create a database on startup
-      # Optionally create a regular user (not root):
-      # - MYSQL_USER=myuser
-      # - MYSQL_PASSWORD=mypassword
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=demo
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "db", "-u", "root", "-proot"]
       interval: 30s
