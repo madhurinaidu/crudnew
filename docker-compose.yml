@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   springboot:
-    image:madhurinaidu/ram000:latest
+    image: madhurinaidu/ram000:latest
     ports:
       - "8080:8080"
     depends_on:
