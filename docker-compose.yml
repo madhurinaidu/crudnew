@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   springboot:
-    image: madhurinaidu/gee:1.0
+    image: madhurinaidu/l1:1.0
     ports:
       - "8080:8080"
     depends_on:
