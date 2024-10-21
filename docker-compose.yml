@@ -2,13 +2,13 @@ version: '3.7'
 
 services:
   springboot:
-    image: madhurinaidu/ram001:1.0
+    image: madhurinaidu/ram011:1.0
     ports:
       - "8080:8080"
     depends_on:
       - mysql  # Just use the service name without conditions here
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://db:8080/crudwithspringpro/"]  # Adjust if needed
+      test: ["CMD", "curl", "--fail", "http://db:8080/crudspring/"]  # Adjust if needed
       interval: 30s
       timeout: 5s
       retries: 3
