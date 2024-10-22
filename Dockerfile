@@ -9,7 +9,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Package the application as a WAR file
-RUN mvn clean package -DskipTests
+RUN mvn clean package 
 
 # Use a lightweight OpenJDK image with Java 17 to run the application
 FROM openjdk:17-jdk-alpine
