@@ -22,7 +22,7 @@ public class Employee {
 	@Autowired
 	 UserIpls service;
 
-	@GetMapping({"/","/viewToDoList"})
+	@GetMapping("/viewToDoList")
 	public String viewAllToDoItems(Model model ,@ModelAttribute("message") String message) {
 		model.addAttribute("list", service.getAllToDoItems());
 		model.addAttribute("message", message);
