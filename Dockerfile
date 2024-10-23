@@ -8,7 +8,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Package the application as a WAR file
-mvn clean install -DskipTests
+RUN mvn clean package -DskipTests
 
 
 
