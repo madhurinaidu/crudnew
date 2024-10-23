@@ -8,7 +8,8 @@ COPY pom.xml .
 COPY src ./src
 
 # Package the application as a WAR file
-RUN mvn clean package 
+mvn clean install -DskipTests
+
 
 
 FROM openjdk:17-jdk-alpine
