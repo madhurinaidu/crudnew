@@ -16,7 +16,7 @@
 	<packaging>war</packaging>
 	<properties>
 		<java.version>17</java.version>
-                <sonar.host.url>http://3.145.181.215:9000/</sonar.host.url>
+                <sonar.host.url>https://3eb8b6ad-d60a-4a75-b15e-33bd2ab491ad-10-244-6-31-9000.papa.r.killercoda.com/</sonar.host.url>
                 <sonar.login>squ_dfd3061cef3bbec2b30239b6ecff483755c5882a</sonar.login>
 
 	</properties>
