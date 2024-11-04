@@ -86,7 +86,17 @@
     <artifactId>spring-boot-starter-actuator</artifactId>
 </dependency>
 	</dependencies>
-
+	<distributionmanagement>
+		<snapshotRepository>
+			<id>nexus</id>
+			<url>http://3.23.98.147:8081/repository/madhu-snapshot/</url>
+		</snapshotRepository>
+            <repository>
+		    <id>nexus</id>
+		    <url>http://3.23.98.147:8081/repository/madhu-releases/</url>
+	    </repository>
+	</distributionmanagement>
+		    
 	
 <build>
 	
